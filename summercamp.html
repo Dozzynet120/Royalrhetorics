@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Rhetorics Summer Camp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a7d00;
+      --accent: #f0c419;
+      --text: #333;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s ease;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+    }
+
+    .slider {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+  height: 400px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  animation: slide 12s infinite;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show entire image without cropping */
+  object-position: center;
+  flex-shrink: 0;
+  padding: 0 5px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: white; /* optional: adds clean padding around image */
+}
+
+.hover-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  max-height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.hover-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+@keyframes slide {
+  0% {transform: translateX(0);}
+  33.333% {transform: translateX(-100%);}
+  66.666% {transform: translateX(-200%);}
+  100% {transform: translateX(0);}
+}
+
+
+    .section {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .incentives, .coaches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .incentive, .coach {
+      background: var(--accent);
+      padding: 1rem;
+      border-radius: 12px;
+      color: var(--text);
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: slideUp 0.6s ease forwards;
+    }
+
+    .coach img {
+      width: 100%;
+      border-radius: 10px;
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    .contact {
+      background: var(--primary);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #065a00;
+    }
+
+    .footer {
+  background: var(--primary);
+  color: white;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+}
+
+.incentive {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.incentive:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #41f50a; /* Slight color shift for hover */
+}
+
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column h3, .footer-column h2 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: var(--accent);
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+}
+
+.coach {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coach:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: #41f50a; /* Optional highlight on hover */
+}
+
+.coach img {
+  transition: transform 0.3s ease;
+}
+
+.coach:hover img {
+  transform: scale(1.05);
+}
+
+
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      0% {transform: translateY(50px); opacity: 0;}
+      100% {transform: translateY(0); opacity: 1;}
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .coach img {
+        max-height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 id="main-title"></h1>
+    <p>July 22 - August 16 | Ages 7-18 | Online and Onsite</p>
+    <p>An intensive virtual program that will transform your child into a confident speaker and critical thinker.</p>
+  </header>
+
+  <div class="slider">
+    <div class="slides">
+      <img src="r1.JPG" alt="Camp Session 1">
+      <img src="r2.JPG" alt="Camp Session 2">
+      <img src="r3.JPG" alt="Camp Session 3">
+    </div>
+  </div>
+
+  <section class="section">
+    <h2>Why Join Us?</h2>
+    <div class="incentives">
+      <div class="incentive">
+        <strong>Public Speaking</strong><br>
+        Learn to speak confidently directly from top coaches across the world.
+      </div>
+      <div class="incentive">
+        <strong>Debate & Logic</strong><br>
+        Build debate and argumentation skills that help them win global debate competitions.
+      </div>
+      <div class="incentive">
+        <strong>Confidence Building</strong><br>
+        Gain experience that helps them stand out in scholarship applications.
+      </div>
+      <div class="incentive">
+        <strong>Creative Thinking</strong><br>
+        Unlock innovative ways to express and solve problems through practical exercises.
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="section">
+    <h2>Camp Details</h2>
+    <p>🎤 4 Weeks of Fun and Learning<br>
+      🕘 9AM - 2PM, Mondays to Fridays<br>
+      📍 Venue: Zoom/Discord and Onsite<br>
+      💵 Fee: ₦50,000</p>
+      <a href="https://bit.ly/RRDSC69" target="_blank">
+        <button>Register Now</button>
+      </a>
+  </section>
+
+  <section class="section" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+    <div style="flex: 1; min-width: 280px;">
+      <img class="hover-img" src="r4.JPG" alt="Debate Session">
+      <img class="hover-img" src="r3.JPG" alt="Youth Discussion">
+    </div>
+  
+    <div style="flex: 2; min-width: 300px;">
+      <h2>This Year's Debate Summer Camp</h2>
+      <p style="margin-top: 1rem; line-height: 1.6;">
+        Get ready for the most transformative communication experience of the year!
+        The <strong>Royal Rhetorics Debate Summer Camp 2024</strong> is your child’s opportunity to level up
+        their public speaking, critical thinking, and global argumentation skills.
+      </p>
+      <p style="margin-top: 1rem;">
+        🎯 Learn to speak confidently with poise and structure—directly from international debate champions.<br>
+        🧠 Master the art of logic, rebuttal, and persuasive storytelling in real-time debates.<br>
+        🌍 Gain competitive exposure and build profiles that stand out for scholarships and leadership roles.
+      </p>
+      <p style="margin-top: 1rem;">
+        Whether your child is a first-time speaker or a returning pro, this summer's camp promises
+        personal growth, intellectual stimulation, and life-long friendships.
+      </p>
+    </div>
+  </section>
+  
+  
+
+  <section class="section">
+    <h2>Meet the Coaches</h2>
+    <div class="coaches">
+      <div class="coach">
+        <img src="eze1.jpg" alt="Coach 1">
+        <h3>Eze Nwakuba</h3>
+        <p>Global Adjudicator & Champion Speaker
+
+            A 2-time Nigerian Debate Champion and breaking judge at both the World Schools and World Universities Championships, Eze brings over 10 years of experience and elimination-round finishes across 100+ tournaments. He’s coached winning teams at Warwick Schools and Oxford Schools China, and was Runner-up & 3rd Best Speaker at the Shanghai International Debate Open 2025.</p>
+      </div>
+      <div class="coach">
+        <img src="jess.jpg" alt="Coach 2">
+        <h3>Awurum Jessica</h3>
+        <p>Creativity Coach & Digital Marketing Guide</p>
+      </div>
+      <div class="coach">
+        <img src="samuel.jpg" alt="Coach 3">
+        <h3>Ayodele Adeyemi Samuel</h3>
+        <p>Ayodele Adeyemi Samuel
+            World-Class Debater & Adjudicator
+            
+            Ayodele is an award-winning debater, coach, and adjudicator with over 160 tournaments under his belt. He was named Nigerian Debater of the Year (2023) and is a 2-time Champion and Best Speaker at the Nigerian Tournament of Champions. Currently a Coach, he has trained students who have won international competitions.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h2>Royal Rhetorics</h2>
+        <p>Empowering the next generation through communication, debate, and leadership training.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr" target="_blank">📘</a>
+          <a href="https://www.instagram.com/royalrhetorics?igsh=MWdrbGh4bDY0ejN0cA%3D%3D&utm_source=qr" target="_blank">📸</a>
+          <a href="twitter.com/rrhetorics" target="_blank">🐦</a>
+          <a href="https://www.linkedin.com/company/royalrhetorics/" target="_blank">▶️</a>
+        </div>
+      </div>
+  
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#camp">Camp Details</a></li>
+          <li><a href="teachers.html">Our Coaches</a></li>
+          <li><a href="https://bit.ly/RRDSC69">Register</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>📞 +234 706 868 6151</p>
+        <p>📧 royalrhetorics@gmail.com</p>
+        <p>🌐 www.royalrhetorics.org</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Royal Rhetorics. All Rights Reserved.
+    </div>
+  </footer>
+  
+
+  <script>
+    // Animate main title with typing effect
+    const title = document.getElementById("main-title");
+    const message = "Welcome to Royal Rhetorics Summer Camp";
+    let i = 0;
+    function typeText() {
+      if (i < message.length) {
+        title.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeText, 100);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", typeText);
+
+    // Animate incentives and coaches on scroll
+    const animatedElements = document.querySelectorAll('.incentive, .coach');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+          entry.target.style.animation = 'slideUp 0.6s ease forwards';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>

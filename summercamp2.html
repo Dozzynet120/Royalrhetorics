@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Rhetorics Summer Camp</title>
+    <!-- Google Fonts: Inter for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN for responsive utilities and easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS variables for consistent theming */
+        :root {
+            --color-gold: #FFD700;
+            --color-black: #fcf8f8;
+            --color-light-yellow: #FFFF00; /* For CTA button */
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Helper classes for text and borders */
+        .text-gold { color: var(--color-gold); }
+        .border-gold { border-color: var(--color-gold); }
+        .bg-gold { background-color: var(--color-gold); }
+        .bg-black { background-color: var(--color-black); }
+
+        /* Custom scrollbar styling for the coaches section */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #333;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--color-gold);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #e6b800; /* Darker gold on hover */
+        }
+
+        /* Keyframes for the 'slide-up' animation (Hero Section headline) */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        /* Keyframes for the 'pop-up' animation (Incentive Section tiles) */
+        @keyframes popUp {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-pop-up {
+            animation: popUp 0.5s ease-out forwards;
+        }
+
+        /* Slideshow specific styling */
+        .slideshow-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+        .slideshow-image.active {
+            opacity: 1;
+        }
+        .slideshow-nav-button {
+            padding: 0.5rem;
+            background-color: rgba(252, 250, 250, 0.5);
+            color: white;
+            border-radius: 9999px; /* rounded-full */
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        .slideshow-nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.75);
+            transform: scale(1.05);
+        }
+        .slideshow-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px; /* rounded-full */
+            background-color: rgb(156 163 175); /* gray-400 */
+            cursor: pointer;
+        }
+        .slideshow-dot.active {
+            background-color: var(--color-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-white text-black min-h-screen flex items-center justify-center relative overflow-hidden py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8 relative z-10 flex flex-col md:flex-row items-center md:items-start justify-center w-full max-w-7xl">
+            <!-- Text Content -->
+            <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0 md:pr-8">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gold animate-slide-up leading-tight">
+                    Royal Rhetorics Summer Camp
+                </h1>
+                <p class="mt-4 md:mt-6 text-xl md:text-2xl text-white opacity-90 font-medium">
+                    An intensive virtual program that will transform your child into
+                    a confident speaker and critical thinker.
+                </p>
+            </div>
+
+            <!-- Slideshow -->
+            <div class="md:w-1/2 relative h-64 md:h-96 w-full rounded-xl overflow-hidden shadow-2xl slideshow-container">
+                <img src="RR1.jpg" alt="Speaking Event" class="slideshow-image active" onerror="this.onerror=null;this.src='https://placehold.co/1000x600/FFD700/000000?text=Image+Load+Error';">
+                <img src="RR3.jpg" alt="Award Ceremony" class="slideshow-image" onerror="this.onerror=null;this.src='https://placehold.co/1000x600/000000/FFD700?text=Image+Load+Error';">
+                <img src="RR2.jpg" alt="Smiling Students" class="slideshow-image" onerror="this.onerror=null;this.src='https://placehold.co/1000x600/FFD700/000000?text=Image+Load+Error';">
+                <img src="RR12.jpg" alt="Debate Action" class="slideshow-image" onerror="this.onerror=null;this.src='https://placehold.co/1000x600/000000/FFD700?text=Image+Load+Error';">
+
+                <!-- Navigation buttons -->
+                <div class="absolute inset-0 flex items-center justify-between p-4 z-20">
+                    <button class="slideshow-nav-button" id="prevSlide" aria-label="Previous image">&#10094;</button>
+                    <button class="slideshow-nav-button" id="nextSlide" aria-label="Next image">&#10095;</button>
+                </div>
+                <!-- Dot indicators -->
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20" id="slideshowDots">
+                    <div class="slideshow-dot active"></div>
+                    <div class="slideshow-dot"></div>
+                    <div class="slideshow-dot"></div>
+                    <div class="slideshow-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Incentive Section -->
+    <section id="incentives" class="bg-white text-black py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gold mb-12">
+                This isn’t just any summer camp — it’s your child’s chance to:
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center mt-8" id="incentiveTilesContainer">
+                <!-- Tiles will be dynamically animated by JS -->
+                <div class="tile-hidden bg-white border-2 border-gold rounded-xl p-6 md:p-8 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center text-black"></div>
+                    <p class="text-xl md:text-2xl font-semibold text-white leading-relaxed">
+                        Learn to speak confidently directly from top coaches across the world
+                    </p>
+                </div>
+                <div class="tile-hidden bg-white border-2 border-gold rounded-xl p-6 md:p-8 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center text-black"></div>
+                    <p class="text-xl md:text-2xl font-semibold text-white leading-relaxed">
+                        Build debate and argumentation skills that help them win global debate competitions
+                    </p>
+                </div>
+                <div class="tile-hidden bg-white border-2 border-gold rounded-xl p-6 md:p-8 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center text-black"></div>
+                    <p class="text-xl md:text-2xl font-semibold text-white leading-relaxed">
+                        Gain experience that helps them stand out in scholarship applications
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section id="details" class="bg-white text-black py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-black mb-12">
+                Camp Details
+            </h2>
+            <div class="flex flex-col md:flex-row md:justify-center md:items-center gap-8 md:gap-16 text-lg md:text-xl">
+                <ul class="space-y-4 md:space-y-6 text-gray-800 list-disc list-inside">
+                    <li><span class="font-semibold text-gold">Ages:</span> 9 – 17</li>
+                    <li><span class="font-semibold text-gold">Duration:</span> 4 weeks of excitement, growth, and powerful learning</li>
+                    <li><span class="font-semibold text-gold">Mode:</span> 100% Virtual (accessible from anywhere)</li>
+                    <li><span class="font-semibold text-gold">Start Date:</span> July 15, 2025</li>
+                    <li><span class="font-semibold text-gold">Fee:</span> ₦50,000 per camp</li>
+                </ul>
+            </div>
+            <div class="text-center mt-12">
+                <a
+                    href="https://bit.ly/RRDSC69"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block bg-yellow-400 text-black font-extrabold text-lg md:text-xl px-10 py-4 rounded-full shadow-lg
+                    hover:bg-yellow-500 hover:scale-105 transition-all duration-300 transform border-2 border-yellow-400
+                    hover:border-yellow-600 focus:outline-none focus:ring-4 focus:ring-yellow-300 active:bg-yellow-600"
+                >
+                    Register Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Coaches Section -->
+    <section id="coaches" class="bg-black text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gold mb-12">
+                Meet Our Coaches
+            </h2>
+            <div class="max-h-96 overflow-y-auto custom-scrollbar pr-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Coach Cards -->
+                    <div class="bg-gray-800 text-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center border border-gold transform transition-all duration-300 hover:scale-105">
+                        <img src="peace.jpg" alt="Dr. Alex Confident" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 border-4 border-gold shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFD700/000000?text=No+Image';">
+                        <h3 class="text-xl md:text-2xl font-bold text-gold mb-2">John-kalio Peace</h3>
+                        <p class="text-base md:text-lg text-gray-300 italic">World-renowned debate champion and public speaking guru.</p>
+                    </div>
+                    <div class="bg-gray-800 text-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center border border-gold transform transition-all duration-300 hover:scale-105">
+                        <img src="eze1.jpg" alt="Prof. Ben Eloquent" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 border-4 border-gold shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/150x150/000000/FFD700?text=No+Image';">
+                        <h3 class="text-xl md:text-2xl font-bold text-gold mb-2">Eze Nwakuba</h3>
+                        <p class="text-base md:text-lg text-gray-300 italic">Fonder Royal Rhetoric. A coach and university trainer.</p>
+                    </div>
+                    <div class="bg-gray-800 text-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center border border-gold transform transition-all duration-300 hover:scale-105">
+                        <img src="samuel.jpg" alt="Ms. Clara Articulate" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 border-4 border-gold shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFD700/000000?text=No+Image';">
+                        <h3 class="text-xl md:text-2xl font-bold text-gold mb-2">Ayodele samuel</h3>
+                        <p class="text-base md:text-lg text-gray-300 italic">World-renowned debate champion and public speaking guru.</p>
+                    </div>
+                    <div class="bg-gray-800 text-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center border border-gold transform transition-all duration-300 hover:scale-105">
+                        <img src="bolaji1.jpg" alt="Mr. David Persuasive" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 border-4 border-gold shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/150x150/000000/FFD700?text=No+Image';">
+                        <h3 class="text-xl md:text-2xl font-bold text-gold mb-2">Ayodele bolaji</h3>
+                        <p class="text-base md:text-lg text-gray-300 italic"> Public speaking trainer and content creator.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gradient-to-tr from-gold to-yellow-600 text-black py-16 md:py-24">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                Contact Us
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 text-lg md:text-xl">
+                <!-- Email Contact -->
+                <div class="flex items-center space-x-3 bg-white p-4 rounded-full shadow-lg border border-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-black"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <a href="mailto:royalrhetorics@gmail.com" class="font-semibold text-black hover:underline">
+                        royalrhetorics@gmail.com
+                    </a>
+                </div>
+                <!-- WhatsApp Contact -->
+                <div class="flex items-center space-x-3 bg-white p-4 rounded-full shadow-lg border border-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-green-500"><path d="M7.9 20A9 9 0 0 1 4 16.1V16A9 9 0 0 1 12 7h.1A9 9 0 0 1 20 16.1V16l-3.61 3.61a2 2 0 0 1-1.41.59A2 2 0 0 1 13 19l-1.5-1.5-2.14 2.14a2 2 0 0 1-2.82 0Z"/></svg>
+                    <a href="https://wa.me/2347068686151" target="_blank" rel="noopener noreferrer" class="font-semibold text-black hover:underline">
+                        +234 706 868 6151
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for Hero Section Slideshow
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.slideshow-image');
+            const dotsContainer = document.getElementById('slideshowDots');
+            const dots = dotsContainer.querySelectorAll('.slideshow-dot');
+            const prevButton = document.getElementById('prevSlide');
+            const nextButton = document.getElementById('nextSlide');
+            let currentIndex = 0;
+            let slideshowInterval;
+
+            function showSlide(index) {
+                images.forEach((img, i) => {
+                    img.classList.remove('active');
+                    dots[i].classList.remove('active');
+                });
+                images[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showSlide(currentIndex);
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showSlide(currentIndex);
+            }
+
+            function startSlideshow() {
+                slideshowInterval = setInterval(nextSlide, 5000); // Change image every 5 seconds
+            }
+
+            function resetSlideshowInterval() {
+                clearInterval(slideshowInterval);
+                startSlideshow();
+            }
+
+            // Event listeners for navigation
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                resetSlideshowInterval();
+            });
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                resetSlideshowInterval();
+            });
+
+            // Event listeners for dot indicators
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    showSlide(currentIndex);
+                    resetSlideshowInterval();
+                });
+            });
+
+            startSlideshow(); // Start slideshow on page load
+        });
+
+        // JavaScript for Incentive Section Pop-Up Tiles
+        document.addEventListener('DOMContentLoaded', function() {
+            const tiles = document.querySelectorAll('#incentiveTilesContainer > div');
+            tiles.forEach((tile, index) => {
+                setTimeout(() => {
+                    tile.classList.remove('tile-hidden');
+                    tile.classList.add('animate-pop-up'); // Trigger the animation
+                }, index * 300); // Staggered appearance
+            });
+        });
+    </script>
+</body>
+</html>
