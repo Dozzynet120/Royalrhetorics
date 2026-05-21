@@ -1,1201 +1,1685 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-   
-    <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--====== Title ======-->
-    <title>Royal Rhetorics| Home</title>
-    
-    <!--====== Favicon Icon ======-->
+    <meta name="description" content="Royal Rhetorics - Empowering individuals and organizations to communicate with clarity, confidence, and impact through debate and public speaking.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Royal Rhetorics | Home</title>
     <link rel="shortcut icon" href="images/RR LOGO.jpg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --primary-light: #2a8faf;
+            --primary-dark: #0d3d4d;
+            --accent: #e8a838;
+            --accent-light: #f5c96a;
+            --accent-dark: #c78a2a;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --light: #f8fafc;
+            --lighter: #ffffff;
+            --text: #334155;
+            --text-light: #64748b;
+            --text-muted: #94a3b8;
+            --glass: rgba(255,255,255,0.08);
+            --glass-border: rgba(255,255,255,0.15);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --shadow-xl: 0 25px 60px rgba(0,0,0,0.2);
+            --radius-sm: 8px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    <!--====== Slick css ======-->
-    <link rel="stylesheet" href="css/slick.css">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; font-weight: 700; }
 
-    <!--====== Animate css ======-->
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <!--====== Nice Select css ======-->
-    <link rel="stylesheet" href="css/nice-select.css">
-    
-    <!--====== Nice Number css ======-->
-    <link rel="stylesheet" href="css/jquery.nice-number.min.css">
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--light); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
 
-    <!--====== Magnific Popup css ======-->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+        /* Preloader */
+        .preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--lighter); z-index: 99999;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .preloader-ring {
+            width: 60px; height: 60px;
+            border: 3px solid var(--light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!--====== Fontawesome css ======-->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    
-    <!--====== Default css ======-->
-    <link rel="stylesheet" href="css/default.css">
-    
-    <!--====== Style css ======-->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!--====== Responsive css ======-->
-    <link rel="stylesheet" href="css/responsive.css">
-  
-  
+        /* Header */
+        .header-top-bar {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white; padding: 10px 0; font-size: 13px;
+        }
+        .header-top-bar .container {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+        }
+        .header-top-bar a { color: var(--accent-light); text-decoration: none; transition: color 0.3s; }
+        .header-top-bar a:hover { color: white; }
+        .header-top-bar i { margin-right: 6px; color: var(--accent); }
+
+        /* Main Header */
+        .main-header {
+            background: var(--lighter);
+            box-shadow: var(--shadow-sm);
+            position: sticky; top: 0; z-index: 1000;
+            transition: var(--transition);
+        }
+        .main-header.scrolled {
+            box-shadow: var(--shadow-lg);
+            padding: 5px 0;
+        }
+        .main-header .container {
+            max-width: 1200px; margin: 0 auto; padding: 15px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo img { height: 55px; width: auto; transition: var(--transition); }
+        .main-header.scrolled .logo img { height: 45px; }
+        .header-actions {
+            display: flex; align-items: center; gap: 15px;
+        }
+        .header-phone {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 16px; background: var(--light); border-radius: 50px;
+            font-size: 13px; color: var(--text);
+        }
+        .header-phone i { color: var(--primary); }
+        .header-phone span { font-weight: 600; color: var(--primary-dark); }
+        .btn-primary {
+            display: inline-block; padding: 12px 28px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white; border: none; border-radius: 50px;
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            text-decoration: none; transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(232,168,56,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232,168,56,0.4);
+        }
+        .btn-outline {
+            display: inline-block; padding: 12px 28px;
+            background: transparent; color: var(--primary);
+            border: 2px solid var(--primary); border-radius: 50px;
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            text-decoration: none; transition: var(--transition);
+        }
+        .btn-outline:hover {
+            background: var(--primary); color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            position: relative;
+        }
+        .nav-bar .container {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-links {
+            display: flex; list-style: none; gap: 0;
+        }
+        .nav-links li { position: relative; }
+        .nav-links li > a {
+            display: block; padding: 16px 20px; color: white;
+            text-decoration: none; font-size: 14px; font-weight: 500;
+            transition: var(--transition); position: relative;
+        }
+        .nav-links li > a::after {
+            content: ''; position: absolute; bottom: 0; left: 50%;
+            width: 0; height: 3px; background: var(--accent);
+            border-radius: 2px; transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        .nav-links li > a:hover::after,
+        .nav-links li > a.active::after { width: 60%; }
+        .nav-links li > a:hover,
+        .nav-links li > a.active { color: var(--accent-light); }
+        .sub-menu {
+            position: absolute; top: 100%; left: 0;
+            background: var(--lighter); min-width: 220px;
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-xl);
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: var(--transition); list-style: none; padding: 8px 0;
+            z-index: 100;
+        }
+        .nav-links li:hover .sub-menu {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+        .sub-menu li a {
+            display: block; padding: 10px 20px; color: var(--text);
+            text-decoration: none; font-size: 13px; font-weight: 400;
+            transition: var(--transition);
+        }
+        .sub-menu li a:hover {
+            background: var(--light); color: var(--primary); padding-left: 28px;
+        }
+        .nav-icons {
+            display: flex; gap: 15px;
+        }
+        .nav-icons a {
+            color: white; font-size: 16px; width: 38px; height: 38px;
+            border: 1px solid var(--glass-border); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: var(--transition);
+            background: var(--glass);
+        }
+        .nav-icons a:hover {
+            background: var(--accent); border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .mobile-toggle {
+            display: none; color: white; font-size: 22px; cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Search Overlay */
+        .search-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13,61,77,0.95); z-index: 10000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: var(--transition);
+        }
+        .search-overlay.active { opacity: 1; visibility: visible; }
+        .search-overlay form {
+            width: 90%; max-width: 600px; position: relative;
+        }
+        .search-overlay input {
+            width: 100%; padding: 20px 60px 20px 25px;
+            border: 2px solid var(--accent); border-radius: var(--radius);
+            background: transparent; color: white; font-size: 18px;
+            outline: none;
+        }
+        .search-overlay input::placeholder { color: rgba(255,255,255,0.5); }
+        .search-overlay button {
+            position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+            background: var(--accent); border: none; color: white;
+            width: 50px; height: 50px; border-radius: var(--radius-sm);
+            cursor: pointer; font-size: 18px; transition: var(--transition);
+        }
+        .search-overlay button:hover { background: var(--accent-dark); }
+        .search-close {
+            position: absolute; top: 30px; right: 30px; color: white;
+            font-size: 30px; cursor: pointer; transition: var(--transition);
+        }
+        .search-close:hover { color: var(--accent); transform: rotate(90deg); }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative; width: 100%; height: 85vh;
+            min-height: 600px; max-height: 900px; overflow: hidden;
+        }
+        .hero-slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; visibility: hidden; transition: opacity 1s ease, visibility 1s ease;
+            display: flex; align-items: center;
+        }
+        .hero-slide.active { opacity: 1; visibility: visible; }
+        .hero-slide-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            transition: transform 8s ease;
+        }
+        .hero-slide.active .hero-slide-bg { transform: scale(1.1); }
+        .hero-slide-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(13,61,77,0.85) 0%, rgba(26,95,122,0.6) 50%, rgba(0,0,0,0.3) 100%);
+        }
+        .hero-slide-content {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            width: 100%;
+        }
+        .hero-slide-content h1 {
+            font-size: clamp(36px, 5vw, 64px); color: white; line-height: 1.15;
+            margin-bottom: 20px; opacity: 0; transform: translateY(40px);
+            transition: all 0.8s ease 0.3s;
+        }
+        .hero-slide.active .hero-slide-content h1 {
+            opacity: 1; transform: translateY(0);
+        }
+        .hero-slide-content p {
+            font-size: clamp(16px, 2vw, 20px); color: rgba(255,255,255,0.85);
+            max-width: 600px; margin-bottom: 35px; line-height: 1.7;
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.8s ease 0.5s;
+        }
+        .hero-slide.active .hero-slide-content p {
+            opacity: 1; transform: translateY(0);
+        }
+        .hero-slide-buttons {
+            display: flex; gap: 15px; flex-wrap: wrap;
+            opacity: 0; transform: translateY(20px);
+            transition: all 0.8s ease 0.7s;
+        }
+        .hero-slide.active .hero-slide-buttons { opacity: 1; transform: translateY(0); }
+        .hero-slide-buttons .btn-primary,
+        .hero-slide-buttons .btn-outline-white {
+            padding: 14px 32px; font-size: 15px;
+        }
+        .btn-outline-white {
+            display: inline-block; padding: 14px 32px;
+            background: transparent; color: white;
+            border: 2px solid rgba(255,255,255,0.5); border-radius: 50px;
+            font-size: 15px; font-weight: 600; cursor: pointer;
+            text-decoration: none; transition: var(--transition);
+        }
+        .btn-outline-white:hover {
+            background: white; color: var(--primary-dark);
+            border-color: white; transform: translateY(-3px);
+        }
+
+        /* Slider Controls */
+        .slider-dots {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 12px; z-index: 10;
+        }
+        .slider-dot {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: rgba(255,255,255,0.3); cursor: pointer;
+            transition: var(--transition); border: 2px solid transparent;
+        }
+        .slider-dot.active {
+            background: var(--accent); border-color: white;
+            transform: scale(1.3);
+        }
+        .slider-arrows {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 100%; display: flex; justify-content: space-between;
+            padding: 0 30px; z-index: 10; pointer-events: none;
+        }
+        .slider-arrow {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2); color: white;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition); pointer-events: auto;
+            font-size: 18px;
+        }
+        .slider-arrow:hover {
+            background: var(--accent); border-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Section Common */
+        .section-padding { padding: 100px 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-header {
+            text-align: center; max-width: 600px; margin: 0 auto 60px;
+        }
+        .section-header h5 {
+            font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600;
+            color: var(--accent); text-transform: uppercase; letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+        .section-header h2 {
+            font-size: clamp(28px, 3.5vw, 42px); color: var(--dark);
+            line-height: 1.2;
+        }
+        .section-header h2 span { color: var(--primary); }
+
+        /* Category Section */
+        .category-section { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 60px 0; }
+        .category-section .container { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .category-text { flex: 0 0 300px; }
+        .category-text h2 {
+            font-size: 32px; color: white; line-height: 1.3;
+        }
+        .category-text h2 span { color: var(--accent); }
+        .category-cards {
+            flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px;
+        }
+        .category-card {
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius);
+            padding: 30px 20px; text-align: center; text-decoration: none;
+            transition: var(--transition); cursor: pointer;
+        }
+        .category-card:hover {
+            background: var(--lighter); transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        .category-card:hover .cat-icon { background: var(--primary); color: white; }
+        .category-card:hover .cat-name { color: var(--primary-dark); }
+        .cat-icon {
+            width: 60px; height: 60px; border-radius: var(--radius);
+            background: rgba(255,255,255,0.15); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px; font-size: 24px; transition: var(--transition);
+        }
+        .cat-name {
+            color: white; font-size: 14px; font-weight: 600;
+            transition: var(--transition);
+        }
+
+        /* About Section */
+        .about-section { background: var(--lighter); }
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .about-image {
+            position: relative; border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        .about-image img {
+            width: 100%; height: 500px; object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .about-image:hover img { transform: scale(1.05); }
+        .about-image::after {
+            content: ''; position: absolute; bottom: -20px; right: -20px;
+            width: 100%; height: 100%; border: 3px solid var(--accent);
+            border-radius: var(--radius-lg); z-index: -1;
+        }
+        .about-content h5 {
+            font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600;
+            color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px;
+        }
+        .about-content h2 {
+            font-size: clamp(28px, 3vw, 38px); color: var(--dark); line-height: 1.2; margin-bottom: 20px;
+        }
+        .about-content h2 span { color: var(--primary); }
+        .about-content p {
+            color: var(--text-light); font-size: 16px; line-height: 1.8; margin-bottom: 25px;
+        }
+        .about-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px;
+        }
+        .about-stat {
+            text-align: center; padding: 20px; background: var(--light);
+            border-radius: var(--radius); transition: var(--transition);
+        }
+        .about-stat:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .about-stat h4 {
+            font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700;
+            color: var(--primary); margin-bottom: 5px;
+        }
+        .about-stat p { font-size: 12px; color: var(--text-muted); margin: 0; }
+
+        /* Events Sidebar */
+        .events-sidebar { background: var(--light); border-radius: var(--radius-lg); padding: 30px; }
+        .events-sidebar h3 {
+            font-size: 22px; color: var(--dark); margin-bottom: 25px;
+            padding-bottom: 15px; border-bottom: 2px solid var(--accent);
+        }
+        .event-item {
+            padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .event-item:last-child { border-bottom: none; }
+        .event-item:hover { padding-left: 10px; }
+        .event-item .date {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 13px; color: var(--accent-dark); font-weight: 500; margin-bottom: 8px;
+        }
+        .event-item h4 {
+            font-size: 16px; color: var(--dark); margin-bottom: 8px; line-height: 1.4;
+        }
+        .event-item h4 a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .event-item h4 a:hover { color: var(--primary); }
+        .event-item .meta {
+            display: flex; gap: 15px; font-size: 12px; color: var(--text-muted);
+        }
+        .event-item .meta i { margin-right: 4px; color: var(--primary); }
+
+        /* Mission/Vision Cards */
+        .mission-section { background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%); padding: 100px 0; }
+        .mission-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
+        }
+        .mission-card {
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+            padding: 50px 40px; position: relative; overflow: hidden;
+            transition: var(--transition);
+        }
+        .mission-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary-light));
+        }
+        .mission-card:hover {
+            transform: translateY(-10px); box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
+        }
+        .mission-card .icon {
+            width: 70px; height: 70px; border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; color: white; margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(232,168,56,0.3);
+        }
+        .mission-card h3 {
+            font-size: 26px; color: white; margin-bottom: 15px;
+        }
+        .mission-card p {
+            color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.8;
+        }
+        .mission-card .btn-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--accent); text-decoration: none; font-weight: 600;
+            margin-top: 20px; font-size: 14px; transition: var(--transition);
+        }
+        .mission-card .btn-link:hover { gap: 15px; color: var(--accent-light); }
+
+        /* Events/Workshop Section */
+        .workshop-section { background: var(--light); }
+        .workshop-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;
+        }
+        .workshop-card {
+            background: var(--lighter); border-radius: var(--radius-lg);
+            overflow: hidden; box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .workshop-card:hover {
+            transform: translateY(-10px); box-shadow: var(--shadow-xl);
+        }
+        .workshop-card .image {
+            position: relative; overflow: hidden; height: 220px;
+        }
+        .workshop-card .image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .workshop-card:hover .image img { transform: scale(1.1); }
+        .workshop-card .content { padding: 25px; }
+        .workshop-card .content h6 {
+            font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 500;
+            color: var(--text); line-height: 1.6;
+        }
+
+        /* Video Feature Section */
+        .video-section {
+            position: relative; padding: 120px 0;
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .video-section::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13,61,77,0.85);
+        }
+        .video-section .container { position: relative; z-index: 2; }
+        .video-play-btn {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 30px; margin: 0 auto 40px;
+            box-shadow: 0 0 0 20px rgba(232,168,56,0.2), 0 0 0 40px rgba(232,168,56,0.1);
+            animation: pulse 2s infinite; cursor: pointer; transition: var(--transition);
+            text-decoration: none;
+        }
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 0 30px rgba(232,168,56,0.2), 0 0 0 60px rgba(232,168,56,0.1);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 20px rgba(232,168,56,0.2), 0 0 0 40px rgba(232,168,56,0.1); }
+            50% { box-shadow: 0 0 0 30px rgba(232,168,56,0.2), 0 0 0 60px rgba(232,168,56,0.1); }
+        }
+        .video-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .feature-list { list-style: none; }
+        .feature-list li {
+            display: flex; gap: 20px; padding: 25px;
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius);
+            margin-bottom: 20px; transition: var(--transition);
+        }
+        .feature-list li:hover {
+            background: rgba(255,255,255,0.15); transform: translateX(10px);
+            border-color: var(--accent);
+        }
+        .feature-list .f-icon {
+            width: 55px; height: 55px; border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: white; flex-shrink: 0;
+        }
+        .feature-list h4 { color: white; font-size: 20px; margin-bottom: 8px; }
+        .feature-list p { color: rgba(255,255,255,0.7); font-size: 14px; }
+
+        /* Team Section */
+        .team-section { background: var(--lighter); }
+        .team-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .team-members {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+        }
+        .team-member {
+            position: relative; border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .team-member:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+        .team-member img { width: 100%; height: 280px; object-fit: cover; }
+        .team-member .info {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(transparent, rgba(13,61,77,0.95));
+            padding: 40px 20px 20px; text-align: center;
+        }
+        .team-member .info h6 {
+            color: white; font-size: 16px; margin-bottom: 4px;
+        }
+        .team-member .info span {
+            color: var(--accent); font-size: 12px; font-weight: 500;
+        }
+
+        /* Publication/Events Gallery */
+        .gallery-section { background: var(--light); }
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px;
+        }
+        .gallery-card {
+            background: var(--lighter); border-radius: var(--radius-lg);
+            overflow: hidden; box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .gallery-card:hover {
+            transform: translateY(-8px); box-shadow: var(--shadow-xl);
+        }
+        .gallery-card .image {
+            position: relative; overflow: hidden; height: 200px;
+        }
+        .gallery-card .image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-card:hover .image img { transform: scale(1.1); }
+        .gallery-card .image .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(26,95,122,0.8); display: flex;
+            align-items: center; justify-content: center; gap: 15px;
+            opacity: 0; transition: var(--transition);
+        }
+        .gallery-card:hover .image .overlay { opacity: 1; }
+        .gallery-card .image .overlay a {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: white; color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: var(--transition);
+        }
+        .gallery-card .image .overlay a:hover {
+            background: var(--accent); color: white; transform: scale(1.1);
+        }
+        .gallery-card .content { padding: 20px; }
+        .gallery-card .content h6 {
+            font-family: 'Poppins', sans-serif; font-size: 15px;
+            font-weight: 600; color: var(--dark); margin-bottom: 5px;
+        }
+        .gallery-card .content span {
+            font-size: 13px; color: var(--text-muted);
+        }
+        .gallery-card .content .tag {
+            display: inline-block; padding: 5px 14px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white; border-radius: 20px; font-size: 12px; font-weight: 500;
+            margin-top: 12px;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            position: relative; padding: 120px 0;
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .testimonial-section::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13,61,77,0.88);
+        }
+        .testimonial-section .container { position: relative; z-index: 2; }
+        .testimonial-section .section-header h2,
+        .testimonial-section .section-header h5 { color: white; }
+        .testimonial-slider {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
+        }
+        .testimonial-card {
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+            padding: 40px; transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.12); transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+        .testimonial-card .quote-icon {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 18px; margin-bottom: 20px;
+        }
+        .testimonial-card p {
+            color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.8;
+            margin-bottom: 25px; font-style: italic;
+        }
+        .testimonial-card .author h6 {
+            color: white; font-size: 16px; margin-bottom: 4px;
+        }
+        .testimonial-card .author span {
+            color: var(--accent); font-size: 13px;
+        }
+
+        /* News Section */
+        .news-section { background: var(--lighter); }
+        .news-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        .news-featured {
+            border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .news-featured:hover { box-shadow: var(--shadow-xl); }
+        .news-featured .image { height: 300px; overflow: hidden; }
+        .news-featured .image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .news-featured:hover .image img { transform: scale(1.05); }
+        .news-featured .content { padding: 30px; }
+        .news-featured .content .meta {
+            display: flex; gap: 20px; font-size: 13px; color: var(--text-muted); margin-bottom: 15px;
+        }
+        .news-featured .content .meta i { color: var(--accent); margin-right: 5px; }
+        .news-featured .content h3 {
+            font-size: 22px; color: var(--dark); margin-bottom: 15px; line-height: 1.3;
+        }
+        .news-featured .content h3 a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .news-featured .content h3 a:hover { color: var(--primary); }
+        .news-featured .content p { color: var(--text-light); font-size: 14px; line-height: 1.7; }
+        .news-list { display: flex; flex-direction: column; gap: 25px; }
+        .news-item {
+            display: grid; grid-template-columns: 140px 1fr; gap: 20px;
+            padding: 20px; background: var(--light); border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        .news-item:hover {
+            background: white; box-shadow: var(--shadow);
+            transform: translateX(10px);
+        }
+        .news-item .thumb {
+            border-radius: var(--radius-sm); overflow: hidden; height: 100px;
+        }
+        .news-item .thumb img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .news-item:hover .thumb img { transform: scale(1.1); }
+        .news-item .info .meta {
+            display: flex; gap: 15px; font-size: 12px; color: var(--text-muted); margin-bottom: 8px;
+        }
+        .news-item .info h4 {
+            font-size: 15px; color: var(--dark); line-height: 1.4;
+        }
+        .news-item .info h4 a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .news-item .info h4 a:hover { color: var(--primary); }
+        .news-item .info p { font-size: 13px; color: var(--text-light); margin-top: 8px; }
+
+        /* Partners */
+        .partners-section { background: var(--light); padding: 60px 0; }
+        .partners-track {
+            display: flex; gap: 60px; align-items: center; justify-content: center;
+            flex-wrap: wrap;
+        }
+        .partner-logo {
+            opacity: 0.5; filter: grayscale(100%);
+            transition: var(--transition); height: 50px; width: auto;
+        }
+        .partner-logo:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: white; padding-top: 80px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 50px;
+        }
+        .footer-brand img { height: 55px; margin-bottom: 20px; }
+        .footer-brand p {
+            color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.8; margin-bottom: 25px;
+        }
+        .footer-social {
+            display: flex; gap: 12px;
+        }
+        .footer-social a {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-decoration: none; transition: var(--transition);
+        }
+        .footer-social a:hover {
+            background: var(--accent); border-color: var(--accent); transform: translateY(-3px);
+        }
+        .footer-title {
+            font-size: 18px; color: white; margin-bottom: 25px;
+            padding-bottom: 15px; border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links li a {
+            color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px;
+            display: flex; align-items: center; gap: 10px; transition: var(--transition);
+        }
+        .footer-links li a:hover { color: var(--accent); padding-left: 8px; }
+        .footer-links li a i { font-size: 10px; color: var(--accent); }
+        .footer-contact li {
+            display: flex; gap: 15px; margin-bottom: 18px;
+        }
+        .footer-contact .icon {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent); font-size: 16px; flex-shrink: 0;
+        }
+        .footer-contact .text { color: rgba(255,255,255,0.6); font-size: 14px; }
+        .footer-contact .text a { color: var(--accent-light); text-decoration: none; }
+        .footer-bottom {
+            margin-top: 60px; padding: 25px 0;
+            border-top: 1px solid var(--glass-border);
+            text-align: center; color: rgba(255,255,255,0.4); font-size: 13px;
+        }
+        .footer-bottom a { color: var(--accent); text-decoration: none; }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white; display: flex; align-items: center; justify-content: center;
+            font-size: 18px; cursor: pointer; opacity: 0; visibility: hidden;
+            transition: var(--transition); z-index: 999; box-shadow: var(--shadow-lg);
+            border: none;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .about-grid, .team-grid, .video-grid, .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .mission-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-section .container { flex-direction: column; text-align: center; }
+            .category-text { flex: none; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%;
+                background: var(--primary-dark); flex-direction: column; padding: 20px;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li > a { padding: 12px 20px; }
+            .sub-menu { position: static; opacity: 1; visibility: visible; transform: none;
+                background: rgba(0,0,0,0.2); box-shadow: none; margin-top: 5px;
+            }
+            .mobile-toggle { display: block; }
+            .hero-slider { height: 70vh; min-height: 500px; }
+            .header-actions .header-phone { display: none; }
+        }
+        @media (max-width: 767px) {
+            .section-padding { padding: 60px 0; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .team-members { grid-template-columns: 1fr 1fr; }
+            .about-stats { grid-template-columns: 1fr; }
+            .news-item { grid-template-columns: 1fr; }
+            .news-item .thumb { height: 160px; }
+            .slider-arrows { display: none; }
+            .hero-slide-content h1 { font-size: 28px; }
+        }
+        @media (max-width: 480px) {
+            .team-members { grid-template-columns: 1fr; }
+            .testimonial-slider { grid-template-columns: 1fr; }
+            .workshop-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+<base target="_blank">
 </head>
-
 <body>
-   
-    <!--====== PRELOADER PART START ======-->
-    
-    <div class="preloader">
-        <div class="loader rubix-cube">
-            <div class="layer layer-1"></div>
-            <div class="layer layer-2"></div>
-            <div class="layer layer-3 color-1"></div>
-            <div class="layer layer-4"></div>
-            <div class="layer layer-5"></div>
-            <div class="layer layer-6"></div>
-            <div class="layer layer-7"></div>
-            <div class="layer layer-8"></div>
-        </div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-ring"></div>
     </div>
-    
-    <!--====== PRELOADER PART START ======-->
-    
-    <!--====== HEADER PART START ======-->
-    
-    <header id="header-part">
-       
-        <div class="header-top d-none d-lg-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact text-lg-left text-center">
-                            <ul>
-                                <li><img src="images/all-icon/map.png" alt="icon"><span>Lagos State, Nigeria</span></li>
-                                <li><img src="images/all-icon/email.png" alt="icon"><span>info@royalrhetorics.org</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="header-opening-time text-lg-right text-center">
-                            <p>Opening Hours : Monday to Saturday - 8 Am to 5 Pm</p>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- header top -->
-        
-        <div class="header-logo-support pt-30 pb-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="images/images/rr1logo.jpg" alt="Logo">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8">
-                        <div class="support-button float-right d-none d-md-block">
-                            <div class="support float-left">
-                                <div class="icon">
-                                    <img src="images/all-icon/support.png" alt="icon">
-                                </div>
-                                <div class="cont">
-                                    <p>To volunteer? call us at</p>
-                                    <span>+2347068686151</span>
-                                </div>
-                            </div>
-                            <div class="button float-left">
-                                <a href="https://flutterwave.com/donate/ishqp4jyosha" class="main-btn" target="_blank">DONATE</a>
-                            </div>
-                            <div class="button float-left">
-                                <a href="https://surveymars.com/q/d1BuhtywU" target="_blank" class="main-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- header logo support -->
-        
-        <div class="navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 col-md-10 col-sm-9 col-8">
-                        <nav class="navbar navbar-expand-lg">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
 
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item">
-                                        <a class="active" href="index.html">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a class="active" href="index.html">Our Experience</a></li>
-                                            <li><a href="index.html">Our Entertainment</a></li>
-                                            <li><a href="index.html">Our Education</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="about.html">About us</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="courses.html">Courses</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="courses.html">Certificate</a></li>
-                                            <li><a href="courses.html">Certificate Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="events.html">Events</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="events.html">Events</a></li>
-                                            <li><a href="events-singel.html">Event Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="teachers.html">Our team</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="teachers.html">team</a></li>
-                                            <li><a href="teachers-singel.html">team Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="shop.html">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="shop.html">Blog</a></li>
-                                            <li><a href="shop.html">Blog Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="shop.html">Shop</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="shop-singel.html">Shop Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="contact.html">Contact</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="contact-2.html">Contact Us 2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav> <!-- nav -->
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-3 col-4">
-                        <div class="right-icon text-right">
-                            <ul>
-                                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
-                            </ul>
-                        </div> <!-- right icon -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div>
-        
-    </header>
-    
-    <!--====== HEADER PART ENDS ======-->
-   
-    <!--====== SEARCH BOX PART START ======-->
-    
-    <div class="search-box">
-        <div class="serach-form">
-            <div class="closebtn">
-                <span></span>
-                <span></span>
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <span class="search-close" onclick="toggleSearch()"><i class="fas fa-times"></i></span>
+        <form action="#">
+            <input type="text" placeholder="Search by keyword...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
+    <!-- Header Top Bar -->
+    <div class="header-top-bar">
+        <div class="container">
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Lagos State, Nigeria</span>
+                <span style="margin: 0 15px; opacity: 0.3">|</span>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@royalrhetorics.org">info@royalrhetorics.org</a>
             </div>
-            <form action="#">
-                <input type="text" placeholder="Search by keyword">
-                <button><i class="fa fa-search"></i></button>
-            </form>
-        </div> <!-- serach form -->
+            <div>
+                <i class="far fa-clock"></i>
+                <span>Mon - Sat: 8 AM - 5 PM</span>
+            </div>
+        </div>
     </div>
-    
-    <!--====== SEARCH BOX PART ENDS ======-->
-   
-    <!--====== SLIDER PART START ======-->
-    
-    <section id="slider-part" class="slider-active">
-        <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/RR3.jpg)" data-overlay="4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Take part in our program</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Elevate your voice and command the stage with Royal Rhetorics transformative debate and public speaking program.</p>
-                            <ul>
-                                <a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="summercamp.html" target="_blank" class="main-btn">Summer Camp</a></li>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="contact.html">Contact us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
-        
-        <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/RR2.jpg)" data-overlay="4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Support our work and team</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">We offer comprehensive coaching and training designed to empower you with the skills to articulate your ideas with clarity, confidence, and persuasive power.</p>
-                            <ul>
-                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="https://forms.gle/HGnn8Vcx3ZLtu7We8" target="_blank" class="main-btn">Summer Camp</a></li>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="contact.html">Contact us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
-        
-        <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/volunteer1.jpg)" data-overlay="4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Volunteer today to be a part of us</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Join our community of aspiring orators and unlock your potential to become a compelling communicator, ready to influnce and inspire.</p>
-                            <ul>
-                                <a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="https://forms.gle/HGnn8Vcx3ZLtu7We8" target="_blank" class="main-btn">Summer Camp</a></li>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="contact.html">Contact us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
-    </section>
-    
-    <!--====== SLIDER PART ENDS ======-->
-   
-    <!--====== CATEGORY PART START ======-->
-    
-    <section id="category-part">
+
+    <!-- Main Header -->
+    <header class="main-header" id="mainHeader">
         <div class="container">
-            <div class="category pt-40 pb-80">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="category-text pt-40">
-                            <h2>Best platform to learn everything</h2>
-                        </div>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/images/rr1logo.jpg" alt="Royal Rhetorics Logo">
+                </a>
+            </div>
+            <div class="header-actions">
+                <div class="header-phone">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <div style="font-size: 11px; color: var(--text-muted);">To volunteer? call us</div>
+                        <span>+2347068686151</span>
                     </div>
-                    <div class="col-lg-6 offset-lg-1 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-8 offset-2">
-                        <div class="row category-slied mt-40">
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-1">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-1.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Debate</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-2">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-2.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Public Speaking</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-3">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-3.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Adjudication</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-1">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-1.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Coaching</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-2">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-2.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Organization</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-3">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-3.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Mentorship</span>
-                                        </span>
-                                    </span> <!-- singel category -->
-                                </a>
-                            </div>
-                        </div> <!-- category slied -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- category -->
-        </div> <!-- container -->
-    </section>
-    
-    <!--====== CATEGORY PART ENDS ======-->
-   
-    <!--====== ABOUT PART START ======-->
-    
-    <section id="about-part" class="pt-65">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="section-title mt-50">
-                        <h5>About us</h5>
-                        <h2>Welcome to Royal Rhetorics </h2>
-                    </div> <!-- section title -->
-                    <div class="about-cont">
-                        <p>Unlock the power of your voice. Royal Rhetorics empowers you to become a confident and persuasive communicator. Through expert coaching in debate and public speaking, we transform your ideas into impactful presentations, enabling you to lead, inspire, and influence.</p>
-                        <a href="#" class="main-btn mt-55">Contact Us</a>
-                    </div>
-                </div> <!-- about cont -->
-                <div class="col-lg-6 offset-lg-1">
-                    <div class="about-event mt-50">
-                        <div class="event-title">
-                            <h3>Upcoming events</h3>
-                        </div> <!-- event title -->
-                        <ul>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i>19th-23rd May 2025</span>
-                                    <a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr"><h4>Nigerian Schools Debating League</h4></a>
-                                    <span><i class="fa fa-clock-o"></i>10:00 Am - 6:00 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i>Discord Auditorium</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i>November, 2025</span>
-                                    <a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr"><h4>West African Universities Debating Championship</h4></a>
-                                    <span><i class="fa fa-clock-o"></i> 9:00 Am - 7:50 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i> Discord Auditorium</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> October, 2025</span>
-                                    <a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr"><h4>Tournament of Champions</h4></a>
-                                    <span><i class="fa fa-clock-o"></i> 8:00 Am - 5:45 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i>Lagos State, Nigeria</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> August, 2025</span>
-                                    <a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr"><h4>Royal Rhetorics Women`s Open</h4></a>
-                                    <span><i class="fa fa-clock-o"></i> 8:00 Am - 5:45 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i>Discord Auditorium</span>
-                                </div>
-                            </li>
-                        </ul> 
-                    </div> <!-- about event -->
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-        <div class="about-bg">
-            <img src="images/about/rr1.jpg" alt="About">
+                <a href="https://flutterwave.com/donate/ishqp4jyosha" class="btn-primary" target="_blank"><i class="fas fa-heart" style="margin-right: 8px;"></i>Donate</a>
+                <a href="https://surveymars.com/q/d1BuhtywU" class="btn-outline" target="_blank">Apply Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="container">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a>
+                    <ul class="sub-menu">
+                        <li><a href="index.html">Our Experience</a></li>
+                        <li><a href="index.html">Our Entertainment</a></li>
+                        <li><a href="index.html">Our Education</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="courses.html">Courses</a>
+                    <ul class="sub-menu">
+                        <li><a href="courses.html">Certificate</a></li>
+                        <li><a href="courses.html">Certificate Single</a></li>
+                    </ul>
+                </li>
+                <li><a href="events.html">Events</a>
+                    <ul class="sub-menu">
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="events-singel.html">Event Single</a></li>
+                    </ul>
+                </li>
+                <li><a href="teachers.html">Our team</a>
+                    <ul class="sub-menu">
+                        <li><a href="teachers.html">team</a></li>
+                        <li><a href="teachers-singel.html">team Single</a></li>
+                    </ul>
+                </li>
+                <li><a href="shop.html">Blog</a>
+                    <ul class="sub-menu">
+                        <li><a href="shop.html">Blog</a></li>
+                        <li><a href="shop.html">Blog Single</a></li>
+                    </ul>
+                </li>
+                <li><a href="shop.html">Shop</a>
+                    <ul class="sub-menu">
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="shop-singel.html">Shop Single</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a>
+                    <ul class="sub-menu">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact-2.html">Contact Us 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="nav-icons">
+                    <a href="#" onclick="toggleSearch(); return false;"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+                <div class="mobile-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars" id="menuIcon"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="heroSlider">
+        <div class="hero-slide active">
+            <div class="hero-slide-bg" style="background-image: url('images/slider/RR3.jpg')"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+                <h1>Take Part in Our Program</h1>
+                <p>Elevate your voice and command the stage with Royal Rhetorics transformative debate and public speaking program.</p>
+                <div class="hero-slide-buttons">
+                    <a href="summercamp.html" class="btn-primary" target="_blank"><i class="fas fa-campground" style="margin-right: 8px;"></i>Summer Camp</a>
+                    <a href="contact.html" class="btn-outline-white"><i class="fas fa-phone" style="margin-right: 8px;"></i>Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/slider/RR2.jpg')"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+                <h1>Support Our Work and Team</h1>
+                <p>We offer comprehensive coaching and training designed to empower you with the skills to articulate your ideas with clarity, confidence, and persuasive power.</p>
+                <div class="hero-slide-buttons">
+                    <a href="https://forms.gle/HGnn8Vcx3ZLtu7We8" class="btn-primary" target="_blank"><i class="fas fa-campground" style="margin-right: 8px;"></i>Summer Camp</a>
+                    <a href="contact.html" class="btn-outline-white"><i class="fas fa-phone" style="margin-right: 8px;"></i>Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('images/slider/volunteer1.jpg')"></div>
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+                <h1>Volunteer Today to Be a Part of Us</h1>
+                <p>Join our community of aspiring orators and unlock your potential to become a compelling communicator, ready to influence and inspire.</p>
+                <div class="hero-slide-buttons">
+                    <a href="https://forms.gle/HGnn8Vcx3ZLtu7We8" class="btn-primary" target="_blank"><i class="fas fa-campground" style="margin-right: 8px;"></i>Summer Camp</a>
+                    <a href="contact.html" class="btn-outline-white"><i class="fas fa-phone" style="margin-right: 8px;"></i>Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-arrows">
+            <div class="slider-arrow" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></div>
+            <div class="slider-arrow" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div class="slider-dots">
+            <div class="slider-dot active" onclick="goToSlide(0)"></div>
+            <div class="slider-dot" onclick="goToSlide(1)"></div>
+            <div class="slider-dot" onclick="goToSlide(2)"></div>
         </div>
     </section>
-    
-    <!--====== ABOUT PART ENDS ======-->
-   
-    <!--====== APPLY PART START ======-->
-    
-    <section id="apply-aprt" class="pb-120">
+
+    <!-- Category Section -->
+    <section class="category-section">
         <div class="container">
-            <div class="apply">
-                <div class="row no-gutters">
-                    <div class="col-lg-6">
-                        <div class="apply-cont apply-color-1">
-                            <h3>Mission Statement </h3>
-                            <p>To empower individuals and Organizations to communicate with clarity, confidence, and impact, fostering ethical and effective expression through the art and science of rhetorics.</p>
-                            <a href="#" class="main-btn">Contact us</a>
-                        </div> <!-- apply cont -->
+            <div class="category-text">
+                <h2>Best Platform to <span>Learn Everything</span></h2>
+            </div>
+            <div class="category-cards">
+                <a href="#" class="category-card">
+                    <div class="cat-icon"><i class="fas fa-comments"></i></div>
+                    <div class="cat-name">Debate</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="cat-icon"><i class="fas fa-microphone"></i></div>
+                    <div class="cat-name">Public Speaking</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="cat-icon"><i class="fas fa-gavel"></i></div>
+                    <div class="cat-name">Adjudication</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="cat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="cat-name">Coaching</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="cat-icon"><i class="fas fa-users"></i></div>
+                    <div class="cat-name">Organization</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="cat-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="cat-name">Mentorship</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content fade-in-up">
+                    <h5>About Us</h5>
+                    <h2>Welcome to <span>Royal Rhetorics</span></h2>
+                    <p>Unlock the power of your voice. Royal Rhetorics empowers you to become a confident and persuasive communicator. Through expert coaching in debate and public speaking, we transform your ideas into impactful presentations, enabling you to lead, inspire, and influence.</p>
+                    <a href="contact.html" class="btn-primary"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Contact Us</a>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <h4>500+</h4>
+                            <p>Students Trained</p>
+                        </div>
+                        <div class="about-stat">
+                            <h4>50+</h4>
+                            <p>Competitions Hosted</p>
+                        </div>
+                        <div class="about-stat">
+                            <h4>10+</h4>
+                            <p>Countries Reached</p>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="apply-cont apply-color-2">
-                            <h3>Vision Statement</h3>
-                            <p>To be the leading global authority in rhetoric, empowering individuals and Organizations worldwild to communicate with clarity, confidence, and transformative impact.</p>
-                            <a href="#" class="main-btn">Contact us</a>
-                        </div> <!-- apply cont -->
-                    </div> 
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+                <div class="events-sidebar fade-in-up">
+                    <h3><i class="fas fa-calendar-alt" style="margin-right: 10px; color: var(--accent);"></i>Upcoming Events</h3>
+                    <div class="event-item">
+                        <div class="date"><i class="far fa-calendar"></i> 19th - 23rd May 2025</div>
+                        <h4><a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr">Nigerian Schools Debating League</a></h4>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 10:00 AM - 6:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Discord Auditorium</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="date"><i class="far fa-calendar"></i> November, 2025</div>
+                        <h4><a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr">West African Universities Debating Championship</a></h4>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 9:00 AM - 7:50 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Discord Auditorium</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="date"><i class="far fa-calendar"></i> October, 2025</div>
+                        <h4><a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr">Tournament of Champions</a></h4>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 8:00 AM - 5:45 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Lagos State, Nigeria</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="date"><i class="far fa-calendar"></i> August, 2025</div>
+                        <h4><a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr">Royal Rhetorics Women's Open</a></h4>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 8:00 AM - 5:45 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Discord Auditorium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <!--====== APPLY PART ENDS ======-->
-   
-    <!--====== COURSE PART START ======-->
-    
-    <section id="course-part" class="pt-115 pb-120 gray-bg">
-        <div class="container"> 
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title pb-45">
-                        <h5>Our workshop</h5>
-                        <h2>Featured Events </h2>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row course-slied mt-30">
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/course/rr1.jpg" alt="Course">
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="course-teacher">
-                                <div class="thum">
-                                </div>
-                                <div class="name">
-                                    <h6>Royal Rhetorics consistently transforms individuals into confident, impactful communicators.</h6>
-                                </div>
-                                <div class="admin">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/course/rr2.jpg" alt="Course">
-                            </div>
-                            <div class="price">
-                            </div>
-                        </div>
-                        <div class="cont">  
-                            <div class="course-teacher">
-                                <div class="thum">
-                                </div>
-                                <div class="name">
-                                    <h6>The growth of our vibrant student's community demonstrates proven success and achievements.</h6>
-                                </div>
-                                <div class="admin">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/course/rr3.jpg" alt="Course">
-                            </div>
-                            <div class="price">
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="course-tea cher">
-                                <div class="thum">
-                                </div>
-                                <div class="name">
-                                    <h6>Royal Rhetorics delivers measurable improvements in debate, coaching and public speaking skills.</h6>
-                                </div>
-                                <div class="admin">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/course/rr4.jpg" alt="Course">
-                            </div>
-                            <div class="price">
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="course-teacher">
-                                <div class="thum">
-                                </div>
-                                <div class="name">
-                                   <h6>Royal Rhetorics achieves real-world communication result for its students, from boardroom presentation.</h6>
-                                </div>
-                                <div class="admin">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/course/rr5.jpg" alt="Course">
-                            </div>
-                            <div class="price">
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="course-teacher">
-                                <div class="thum">
-                                </div>
-                                <div class="name">
-                                    <h6>Royal Rhetorics builds confidence in communication, empowering individuals tpo express themselves effectively</h6>
-                                </div>
-                                <div class="admin">
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-            </div> <!-- course slied -->
-        </div> <!-- container -->
-    </section>
-    
-    <!--====== COURSE PART ENDS ======-->
-   
-    <!--====== VIDEO FEATURE PART START ======-->
-    
-    <section id="video-feature" class="bg_cover pt-60 pb-110" style="background-image: url(images/images/bg.jpg)">
+
+    <!-- Mission & Vision -->
+    <section class="mission-section" id="mission">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-last order-lg-first">
-                    <div class="video text-lg-left text-center pt-50">
-                        <a class="Video-popup" href="https://youtu.be/EOlxlwYML9o?si=n2uutpeR9h1rRkLh"><i class="fa fa-play"></i></a>
-                    </div> <!-- row -->
+            <div class="section-header" style="margin-bottom: 50px;">
+                <h5>Our Purpose</h5>
+                <h2 style="color: white;">What Drives <span style="color: var(--accent);">Us</span></h2>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-card fade-in-up">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Mission Statement</h3>
+                    <p>To empower individuals and organizations to communicate with clarity, confidence, and impact, fostering ethical and effective expression through the art and science of rhetorics.</p>
+                    <a href="contact.html" class="btn-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="col-lg-5 offset-lg-1 order-first order-lg-last">
-                    <div class="feature pt-50">
-                        <div class="feature-title">
-                            <h3>Our Products</h3>
-                        </div>
-                        <ul>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-1.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Global Certificate</h4>
-                                        <p>Our Certificate are globally recognised by all.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-2.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>team Support</h4>
-                                        <p>Our team is always ready to deliver at every given point in time.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-3.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Competitive Sport</h4>
-                                        <p>We ensure our competitions are very Competitive and meets the global standard of effective competitions.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                        </ul>
-                    </div> <!-- feature -->
+                <div class="mission-card fade-in-up">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h3>Vision Statement</h3>
+                    <p>To be the leading global authority in rhetoric, empowering individuals and organizations worldwide to communicate with clarity, confidence, and transformative impact.</p>
+                    <a href="contact.html" class="btn-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-        <div class="feature-bg"></div> <!-- feature bg -->
+            </div>
+        </div>
     </section>
-    
-    <!--====== VIDEO FEATURE PART ENDS ======-->
-   
-    <!--====== TEACHERS PART START ======-->
-    
-    <section id="teachers-part" class="pt-70 pb-120">
+
+    <!-- Workshop / Featured Events -->
+    <section class="workshop-section section-padding" id="workshop">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="section-title mt-50">
+            <div class="section-header">
+                <h5>Our Workshop</h5>
+                <h2>Featured <span>Events</span></h2>
+            </div>
+            <div class="workshop-grid">
+                <div class="workshop-card fade-in-up">
+                    <div class="image">
+                        <img src="images/course/rr1.jpg" alt="Event">
+                    </div>
+                    <div class="content">
+                        <h6>Royal Rhetorics consistently transforms individuals into confident, impactful communicators.</h6>
+                    </div>
+                </div>
+                <div class="workshop-card fade-in-up">
+                    <div class="image">
+                        <img src="images/course/rr2.jpg" alt="Event">
+                    </div>
+                    <div class="content">
+                        <h6>The growth of our vibrant student's community demonstrates proven success and achievements.</h6>
+                    </div>
+                </div>
+                <div class="workshop-card fade-in-up">
+                    <div class="image">
+                        <img src="images/course/rr3.jpg" alt="Event">
+                    </div>
+                    <div class="content">
+                        <h6>Royal Rhetorics delivers measurable improvements in debate, coaching and public speaking skills.</h6>
+                    </div>
+                </div>
+                <div class="workshop-card fade-in-up">
+                    <div class="image">
+                        <img src="images/course/rr4.jpg" alt="Event">
+                    </div>
+                    <div class="content">
+                        <h6>Royal Rhetorics achieves real-world communication results for its students, from boardroom presentations.</h6>
+                    </div>
+                </div>
+                <div class="workshop-card fade-in-up">
+                    <div class="image">
+                        <img src="images/course/rr5.jpg" alt="Event">
+                    </div>
+                    <div class="content">
+                        <h6>Royal Rhetorics builds confidence in communication, empowering individuals to express themselves effectively.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Feature Section -->
+    <section class="video-section" style="background-image: url('images/images/bg.jpg')" id="video">
+        <div class="container">
+            <div class="video-grid">
+                <div class="fade-in-up" style="text-align: center;">
+                    <a href="https://youtu.be/EOlxlwYML9o?si=n2uutpeR9h1rRkLh" class="video-play-btn" target="_blank">
+                        <i class="fas fa-play"></i>
+                    </a>
+                    <h2 style="color: white; font-size: 32px; margin-bottom: 10px;">Watch Our Story</h2>
+                    <p style="color: rgba(255,255,255,0.7);">See how we transform lives through the power of rhetoric</p>
+                </div>
+                <div class="fade-in-up">
+                    <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                        <h5 style="color: var(--accent);">Our Products</h5>
+                        <h2 style="color: white;">What We <span style="color: var(--accent);">Offer</span></h2>
+                    </div>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="f-icon"><i class="fas fa-certificate"></i></div>
+                            <div>
+                                <h4>Global Certificate</h4>
+                                <p>Our certificates are globally recognized by all.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="f-icon"><i class="fas fa-users"></i></div>
+                            <div>
+                                <h4>Team Support</h4>
+                                <p>Our team is always ready to deliver at every given point in time.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="f-icon"><i class="fas fa-trophy"></i></div>
+                            <div>
+                                <h4>Competitive Sport</h4>
+                                <p>We ensure our competitions meet global standards of effective competitions.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section section-padding" id="team">
+        <div class="container">
+            <div class="team-grid">
+                <div class="fade-in-up">
+                    <div class="section-header" style="text-align: left; margin-bottom: 25px;">
                         <h5>Featured Team</h5>
-                        <h2>Meet Our Team</h2>
-                    </div> <!-- section title -->
-                    <div class="teachers-cont">
-                        <p>At Royal Rhetorics, our team is comprised of passionate and experienced communicators dedicated to empowering individuals through the art of debate and public speaking. We bring a diverse range of expertise, from seasoned debaters and public speakers to skilled coaches, all united by a shared commitment to fostering confidence and clarity in our students. <br> Our collabortaive approach and personalized guidance create a supportive learning environment, ensuring every participant recieves the tools and encouragement they need to excel.</p>
-                        <a href="#" class="main-btn mt-55">Contact us</a>
-                    </div> <!-- teachers cont -->
+                        <h2>Meet Our <span>Team</span></h2>
+                    </div>
+                    <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 25px;">At Royal Rhetorics, our team is comprised of passionate and experienced communicators dedicated to empowering individuals through the art of debate and public speaking. We bring a diverse range of expertise, from seasoned debaters and public speakers to skilled coaches, all united by a shared commitment to fostering confidence and clarity in our students.</p>
+                    <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 30px;">Our collaborative approach and personalized guidance create a supportive learning environment, ensuring every participant receives the tools and encouragement they need to excel.</p>
+                    <a href="contact.html" class="btn-primary"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Contact Us</a>
                 </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <div class="teachers mt-20">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="singel-teachers mt-30 text-center">
-                                    <div class="image">
-                                        <img src="images/teachers/diva2.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Chidinma Diva</h6></a>
-                                        <span>Team Member</span>
-                                    </div>
-                                </div> <!-- singel teachers -->
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="singel-teachers mt-30 text-center">
-                                    <div class="image">
-                                        <img src="images/teachers/bolaji2.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Ayodele Bolaji</h6></a>
-                                        <span>Team Member</span>
-                                    </div>
-                                </div> <!-- singel teachers -->
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="singel-teachers mt-30 text-center">
-                                    <div class="image">
-                                        <img src="images/teachers/eze2.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Eze Nwakuba</h6></a>
-                                        <span>CEO</span>
-                                    </div>
-                                </div> <!-- singel teachers -->
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="singel-teachers mt-30 text-center">
-                                    <div class="image">
-                                        <img src="images/teachers/samuel.jpg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Ayodele Samuel</h6></a>
-                                        <span>Team Member</span>
-                                    </div>
-                                </div> <!-- singel teachers -->
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- teachers -->
+                <div class="team-members fade-in-up">
+                    <div class="team-member">
+                        <img src="images/teachers/diva2.jpg" alt="Chidinma Diva">
+                        <div class="info">
+                            <h6>Chidinma Diva</h6>
+                            <span>Team Member</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/teachers/bolaji2.jpg" alt="Ayodele Bolaji">
+                        <div class="info">
+                            <h6>Ayodele Bolaji</h6>
+                            <span>Team Member</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/teachers/eze2.jpg" alt="Eze Nwakuba">
+                        <div class="info">
+                            <h6>Eze Nwakuba</h6>
+                            <span>CEO</span>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/teachers/samuel.jpg" alt="Ayodele Samuel">
+                        <div class="info">
+                            <h6>Ayodele Samuel</h6>
+                            <span>Team Member</span>
+                        </div>
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
-    
-    <!--====== TEACHERS PART ENDS ======-->
-   
-    <!--====== PUBLICATION PART START ======-->
-    
-    <section id="publication-part" class="pt-115 pb-120 gray-bg">
+
+    <!-- Gallery / Events -->
+    <section class="gallery-section section-padding" id="gallery">
         <div class="container">
-            <div class="row align-items-end">
-                <div class="col-lg-6 col-md-8 col-sm-7">
-                    <div class="section-title pb-60">
-                        <h5>Our Publications</h5>
-                        <h2>Check out our Events </h2>
-                    </div> <!-- section title -->
+            <div class="section-header">
+                <h5>Our Publications</h5>
+                <h2>Check Out Our <span>Events</span></h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card fade-in-up">
+                    <div class="image">
+                        <img src="images/images/event1.jpg" alt="Public Speaking">
+                        <div class="overlay">
+                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="#"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h6>Public Speaking</h6>
+                        <span>International Schools Debate</span>
+                        <div class="tag">Zim Team</div>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-4 col-sm-5">
-                    <div class="products-btn text-right pb-60">
-                        <a href="#" class="main-btn">Our Gallary</a>
-                    </div> <!-- products btn -->
+                <div class="gallery-card fade-in-up">
+                    <div class="image">
+                        <img src="images/images/event3.jpg" alt="Meet Our Finalist">
+                        <div class="overlay">
+                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="#"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h6>Meet Our Finalist</h6>
+                        <span>TOC 2023</span>
+                        <div class="tag">Cross Team</div>
+                    </div>
                 </div>
-            </div> <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6 col-sm-8">
-                    <div class="singel-publication mt-30">
-                        <div class="image">
-                            <img src="images/images/event1.jpg" alt="Publication">
-                            <div class="add-cart">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                </ul>
-                            </div>
+                <div class="gallery-card fade-in-up">
+                    <div class="image">
+                        <img src="images/images/event4.jpg" alt="Our Participants">
+                        <div class="overlay">
+                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="#"><i class="far fa-heart"></i></a>
                         </div>
-                        <div class="cont">
-                            <div class="name">
-                                <a href="shop-singel.html"><h6>Public Speaking </h6></a>
-                                <span>International Schools Debate</span>
-                            </div>
-                            <div class="button text-right">
-                                <a href="#" class="main-btn">Zim Team</a>
-                            </div>
-                        </div>
-                    </div> <!-- singel publication -->
+                    </div>
+                    <div class="content">
+                        <h6>Our Participants</h6>
+                        <span>Final Round</span>
+                        <div class="tag">Awesome Souls</div>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-8">
-                    <div class="singel-publication mt-30">
-                        <div class="image">
-                            <img src="images/images/event3.jpg" alt="Publication">
-                            <div class="add-cart">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                </ul>
-                            </div>
+                <div class="gallery-card fade-in-up">
+                    <div class="image">
+                        <img src="images/images/event2.jpg" alt="ANUDC 2024">
+                        <div class="overlay">
+                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="#"><i class="far fa-heart"></i></a>
                         </div>
-                        <div class="cont">
-                            <div class="name">
-                                <a href="shop-singel.html"><h6>Meet Our Finalist </h6></a>
-                                <span>TOC 2023</span>
-                            </div>
-                            <div class="button text-right">
-                                <a href="#" class="main-btn">Cross Team</a>
-                            </div>
-                        </div>
-                    </div> <!-- singel publication -->
+                    </div>
+                    <div class="content">
+                        <h6>ANUDC 2024</h6>
+                        <span>PS Champion</span>
+                        <div class="tag">AL-FUNIA TEAM</div>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-8">
-                    <div class="singel-publication mt-30">
-                        <div class="image">
-                            <img src="images/images/event4.jpg" alt="Publication">
-                            <div class="add-cart">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="name">
-                                <a href="shop-singel.html"><h6>Our Participants </h6></a>
-                                <span>Final Round</span>
-                            </div>
-                            <div class="button text-right">
-                                <a href="#" class="main-btn">Awesome souls</a>
-                            </div>
-                        </div>
-                    </div> <!-- singel publication -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-8">
-                    <div class="singel-publication mt-30">
-                        <div class="image">
-                            <img src="images/images/event2.jpg" alt="Publication">
-                            <div class="add-cart">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <div class="name">
-                                <a href="shop-singel.html"><h6>ANUDC 2024</h6></a>
-                                <span>PS Champion</span>
-                            </div>
-                            <div class="button text-right">
-                                <a href="#" class="main-btn">AL-FUNIA TEAM</a>
-                            </div>
-                        </div>
-                    </div> <!-- singel publication -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn-outline">View Our Gallery</a>
+            </div>
+        </div>
     </section>
-    
-    <!--====== PUBLICATION PART ENDS ======-->
-   
-    <!--====== TEASTIMONIAL PART START ======-->
-    
-    <section id="testimonial" class="bg_cover pt-115 pb-115" data-overlay="8" style="background-image: url(images/images/not.jpg)">
+
+    <!-- Testimonials -->
+    <section class="testimonial-section" style="background-image: url('images/images/not.jpg')" id="testimonials">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title pb-40">
-                        <h5>Testimonial</h5>
-                        <h2>What they say about us</h2>
-                    </div> <!-- section title -->
+            <div class="section-header">
+                <h5>Testimonial</h5>
+                <h2>What They Say <span>About Us</span></h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card fade-in-up">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p>I would like to thank all of you for this tournament. It was an important and unforgettable experience for the boys and I. May the Lord bless all of you for all that you did to make this tournament memorable.</p>
+                    <div class="author">
+                        <h6>Chinonso Collins</h6>
+                        <span>University of Nigeria Nsukka</span>
+                    </div>
                 </div>
-            </div> <!-- row -->
-            <div class="row testimonial-slied mt-40">
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>I would like to thank all of you for this tournament. it was an important and unforgettable experience for the boys and I. may the lord bless all of you for all that you did to make this tournament memorable.</p>
-                            <h6>Chinonso Collins</h6>
-                            <span>University of Nigeria Nsukka</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
+                <div class="testimonial-card fade-in-up">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p>Thank you so much for hosting us. The facilities were top notch. And I may not finish to wrap my head around the kind of work it must have taken you to host both colleges and high school, so but thank you so much.</p>
+                    <div class="author">
+                        <h6>Adetunji Tesleem</h6>
+                        <span>University of Ilorin</span>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Thank you so much for hosting us. The facilities were top notch. And I may not finish to wrap my head around the kind of work it must have taken you to host both colleges and high school, so but thank you so much.</p>
-                            <h6>Adetunji Tesleem</h6>
-                            <span>University of Ilorin</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
+                <div class="testimonial-card fade-in-up">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p>A big shout out goes to my gee Eze Nwakuba and his team for delivering an awesome tournament. Big ups to the entire CAP you guys did a great job with the motion and lastly congrats to the winners of the various categories.</p>
+                    <div class="author">
+                        <h6>Thembani Khumalo</h6>
+                        <span>University of Zimbabwe</span>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>A big shout out goes to my gee Eze Nwakuba and his team for delivering an awesome tournament. Big ups to the entire CAP you guys did a great job with the motion and lastly congrats to the winners of the various categories.</p>
-                            <h6>Thembani Khumalo</h6>
-                            <span>University of Zimbabwe</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
-            </div> <!-- testimonial slied -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
-    
-    <!--====== TEASTIMONIAL PART ENDS ======-->
-   
-    <!--====== NEWS PART START ======-->
-    
-    <section id="news-part" class="pt-115 pb-110">
+
+    <!-- News Section -->
+    <section class="news-section section-padding" id="news">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title pb-50">
-                        <h5>Latest News</h5>
-                        <h2>From the news</h2>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="singel-news mt-30">
-                        <div class="news-thum pb-25">
-                            <img src="images/images/news4.jpg" alt="News">
+            <div class="section-header">
+                <h5>Latest News</h5>
+                <h2>From the <span>News</span></h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-featured fade-in-up">
+                    <div class="image">
+                        <img src="images/images/news4.jpg" alt="Beach Excursion">
+                    </div>
+                    <div class="content">
+                        <div class="meta">
+                            <span><i class="far fa-calendar"></i> 20 November 2024</span>
+                            <span><i class="far fa-user"></i> By Admin</span>
                         </div>
-                        <div class="news-cont">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-calendar"></i>20 November 2024 </a></li>
-                                <li><a href="#"> <span>By</span> admin</a></li>
-                            </ul>
-                            <a href="blog-singel.html"><h3>Beach excurtion for Schools debate teams.</h3></a>
-                            <p>At the just concluded schools debate Championship, we had a whooping number of school participation within the country and outside the country, particularly from Zimbabwe. Our team took they teams out on a tour, to experience the awesome nature gift at the Beach. All participant alongside their coaches and school staff were happy and fulfilled.</p>
+                        <h3><a href="blog-singel.html">Beach Excursion for Schools Debate Teams</a></h3>
+                        <p>At the just concluded schools debate Championship, we had a whooping number of school participation within the country and outside the country, particularly from Zimbabwe. Our team took the teams out on a tour, to experience the awesome nature gift at the Beach. All participants alongside their coaches and school staff were happy and fulfilled.</p>
+                    </div>
+                </div>
+                <div class="news-list">
+                    <div class="news-item fade-in-up">
+                        <div class="thumb">
+                            <img src="images/images/news3.jpg" alt="Cash Award">
                         </div>
-                    </div> <!-- singel news -->
+                        <div class="info">
+                            <div class="meta">
+                                <span><i class="far fa-calendar"></i> 14 April 2024</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h4><a href="blog-singel.html">Cash Award to Public Speaking Champion at ANUDC 2024</a></h4>
+                            <p>Our team members Joan and Samuel present a cash sum of N100,000 Naira to the current national champion.</p>
+                        </div>
+                    </div>
+                    <div class="news-item fade-in-up">
+                        <div class="thumb">
+                            <img src="images/images/news1.jpg" alt="Public Speaking Session">
+                        </div>
+                        <div class="info">
+                            <div class="meta">
+                                <span><i class="far fa-calendar"></i> 20 November 2024</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h4><a href="blog-singel.html">Schools Public Speaking Session</a></h4>
+                            <p>Participant from Zimbabwe delivering her powerful public speaking speech at the just concluded Schools debate and speech competition.</p>
+                        </div>
+                    </div>
+                    <div class="news-item fade-in-up">
+                        <div class="thumb">
+                            <img src="images/images/news5.jpg" alt="Happy Participant">
+                        </div>
+                        <div class="info">
+                            <div class="meta">
+                                <span><i class="far fa-calendar"></i> 27 October 2023</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h4><a href="blog-singel.html">Happy Participant</a></h4>
+                            <p>At the first edition of the Tournament Of Champions, our participants were incredibly happy, and this is one of them.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="singel-news news-list">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="news-thum mt-30">
-                                    <img src="images/images/news3.jpg" alt="News">
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>14 April 2024 </a></li>
-                                        <li><a href="#"> <span>By</span> admin</a></li>
-                                    </ul>
-                                    <a href="blog-singel.html"><h3>Cash award to public speaking champion at ANUDC 2024</h3></a>
-                                    <p>Our team members Joan and Samuel present a cash sum of N100,000 Naira to the current national champion, ANUDC Public Speaking Competition 2024, in the person of Miss. Uchendu Lydia.</p>
-                                </div>
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- singel news -->
-                    <div class="singel-news news-list">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="news-thum mt-30">
-                                    <img src="images/images/news1.jpg" alt="News">
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>20 November 2024 </a></li>
-                                        <li><a href="#"> <span>By</span> admin</a></li>
-                                    </ul>
-                                    <a href="blog-singel.html"><h3>Schools Public Speaking session</h3></a>
-                                    <p>Participant from Zimbabwe delivering her powerful public speaking speech at the just concluded Schools debate and speech competition held in November, 2025 in Lagos.</p>
-                                </div>
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- singel news -->
-                    <div class="singel-news news-list">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="news-thum mt-30">
-                                    <img src="images/images/news5.jpg" alt="News">
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="news-cont mt-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-calendar"></i>27 October 2023 </a></li>
-                                        <li><a href="#"> <span>By</span> admin</a></li>
-                                    </ul>
-                                    <a href="blog-singel.html"><h3>Happy Participant</h3></a>
-                                    <p>At the first edition of the Tournament Of Champions, our participants were incredibly happy, and this is one of them.</p>
-                                </div>
-                            </div>
-                        </div> <!-- row -->
-                    </div> <!-- singel news -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
-    
-    <!--====== NEWS PART ENDS ======-->
-   
-    <!--====== PATNAR LOGO PART START ======-->
-    
-    <div id="patnar-logo" class="pt-40 pb-80 gray-bg">
+
+    <!-- Partners -->
+    <section class="partners-section">
         <div class="container">
-            <div class="row patnar-slied">
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-1.png" alt="Logo">
+            <div class="partners-track">
+                <img src="images/patnar-logo/p-1.png" alt="Partner" class="partner-logo">
+                <img src="images/patnar-logo/p-2.png" alt="Partner" class="partner-logo">
+                <img src="images/patnar-logo/p-3.png" alt="Partner" class="partner-logo">
+                <img src="images/patnar-logo/p-4.png" alt="Partner" class="partner-logo">
+                <img src="images/patnar-logo/p-2.png" alt="Partner" class="partner-logo">
+                <img src="images/patnar-logo/p-3.png" alt="Partner" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/images/rr1logo.jpg" alt="Royal Rhetorics">
+                    <p>Unlock the power of your voice. Royal Rhetorics empowers you to become a confident and persuasive communicator. Through expert coaching in debate and public speaking, we transform your ideas into impactful presentations, enabling you to lead, inspire, and influence.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/rrhetorics" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/royalrhetorics/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/royalrhetorics?igsh=MWdrbGh4bDY0ejN0cA%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-2.png" alt="Logo">
-                    </div>
+                <div>
+                    <h4 class="footer-title">Sitemap</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-angle-right"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-angle-right"></i>About Us</a></li>
+                        <li><a href="courses.html"><i class="fas fa-angle-right"></i>Programs</a></li>
+                        <li><a href="blog.html"><i class="fas fa-angle-right"></i>News</a></li>
+                        <li><a href="events.html"><i class="fas fa-angle-right"></i>Events</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i>Gallery</a></li>
+                        <li><a href="shop.html"><i class="fas fa-angle-right"></i>Shop</a></li>
+                        <li><a href="teachers.html"><i class="fas fa-angle-right"></i>Team</a></li>
+                        <li><a href="contact.html"><i class="fas fa-angle-right"></i>Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-3.png" alt="Logo">
-                    </div>
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i>FAQs</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i>Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i>Support</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i>Documentation</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-4.png" alt="Logo">
-                    </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact" style="list-style: none;">
+                        <li>
+                            <div class="icon"><i class="fas fa-home"></i></div>
+                            <div class="text">Lagos State, Nigeria</div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <div class="text"><a href="tel:+2347068686151">+2347068686151</a></div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div class="text"><a href="mailto:info@royalrhetorics.org">info@royalrhetorics.org</a></div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-2.png" alt="Logo">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-3.png" alt="Logo">
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> 
-    
-    <!--====== PATNAR LOGO PART ENDS ======-->
-   
-    <!--====== FOOTER PART START ======-->
-    
-    <footer id="footer-part">
-        <div class="footer-top pt-40 pb-70">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-about mt-40">
-                            <div class="logo">
-                                <a href="#"><img src="images/images/rr1logo.jpg" alt="Logo"></a>
-                            </div>
-                            <p>Unlock the power of your voice. Royal rhetorics empowers you to become a confident and persuasive communicator. Through expert coaching in debate and public speaking, we transform your ideas into impactful presentations, enabling you to lead, inspire, and influence.</p>
-                            <ul class="mt-20">
-                                <li><a href="https://www.facebook.com/share/1AEeS85G5B/?mibextid=wwXIfr"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="twitter.com/rrhetorics"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/company/royalrhetorics/"><i class="fa fa-linkedin-square"></i></a></li>
-                                <li><a href="https://www.instagram.com/royalrhetorics?igsh=MWdrbGh4bDY0ejN0cA%3D%3D&utm_source=qr"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div> <!-- footer about -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="footer-link mt-40">
-                            <div class="footer-title pb-25">
-                                <h6>Sitemap</h6>
-                            </div>
-                            <ul>
-                                <li><a href="index-2.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                <li><a href="courses.html"><i class="fa fa-angle-right"></i>program</a></li>
-                                <li><a href="blog.html"><i class="fa fa-angle-right"></i>News</a></li>
-                                <li><a href="events.html"><i class="fa fa-angle-right"></i>Event</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                                <li><a href="shop.html"><i class="fa fa-angle-right"></i>Shop</a></li>
-                                <li><a href="teachers.html"><i class="fa fa-angle-right"></i>TEAM</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
-                            </ul>
-                        </div> <!-- footer link -->
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="footer-link support mt-40">
-                            <div class="footer-title pb-25">
-                                <h6>Support</h6>
-                            </div>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
-                            </ul>
-                        </div> <!-- support -->
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-address mt-40">
-                            <div class="footer-title pb-25">
-                                <h6>Contact Us</h6>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fa fa-home"></i>
-                                    </div>
-                                    <div class="cont">
-                                        <p>Lagos State, Nigeria</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <div class="cont">
-                                        <p>+2347068686151</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fa fa-envelope-o"></i>
-                                    </div>
-                                    <div class="cont">
-                                        <p>info@royalrhetorics.org</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> <!-- footer address -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- footer top -->
-        
-        <div class="footer-copyright pt-10 pb-25">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="copyright text-md-left text-center pt-15">
-                            <p><a target="_blank" href="https://www.dozzynetenterprise.com.ng">Dozzynetenterprise</a> </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="copyright text-md-right text-center pt-15">
-                           
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- footer copyright -->
+            </div>
+            <div class="footer-bottom">
+                <p>Developed by <a href="https://www.dozzynetenterprise.com.ng" target="_blank">Dozzynetenterprise</a> &copy; 2025 Royal Rhetorics. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
-    
-    <!--====== FOOTER PART ENDS ======-->
-   
-    <!--====== BACK TO TP PART START ======-->
-    
-    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-    
-    <!--====== BACK TO TP PART ENDS ======-->
-   
-    
-    
-    
-    
-    
-    
-    
-    <!--====== jquery js ======-->
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
 
-    <!--====== Bootstrap js ======-->
-    <script src="js/bootstrap.min.js"></script>
-    
-    <!--====== Slick js ======-->
-    <script src="js/slick.min.js"></script>
-    
-    <!--====== Magnific Popup js ======-->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    
-    <!--====== Counter Up js ======-->
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    
-    <!--====== Nice Select js ======-->
-    <script src="js/jquery.nice-select.min.js"></script>
-    
-    <!--====== Nice Number js ======-->
-    <script src="js/jquery.nice-number.min.js"></script>
-    
-    <!--====== Count Down js ======-->
-    <script src="js/jquery.countdown.min.js"></script>
-    
-    <!--====== Validator js ======-->
-    <script src="js/validator.min.js"></script>
-    
-    <!--====== Ajax Contact js ======-->
-    <script src="js/ajax-contact.js"></script>
-    
-    <!--====== Main js ======-->
-    <script src="js/main.js"></script>
-    
-    <!--====== Map js ======-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
-    <script src="js/map-script.js"></script>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-angle-up"></i>
+    </button>
 
+    <!-- Scripts -->
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 800);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Search toggle
+        function toggleSearch() {
+            document.getElementById('searchOverlay').classList.toggle('active');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const nav = document.getElementById('navLinks');
+            const icon = document.getElementById('menuIcon');
+            nav.classList.toggle('active');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.getElementById('menuIcon').classList.remove('fa-times');
+                document.getElementById('menuIcon').classList.add('fa-bars');
+            });
+        });
+
+        // Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+            resetInterval();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => changeSlide(1), 6000);
+        }
+
+        slideInterval = setInterval(() => changeSlide(1), 6000);
+
+        // Touch support for slider
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const slider = document.getElementById('heroSlider');
+
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) changeSlide(1);
+            if (touchEndX - touchStartX > 50) changeSlide(-1);
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Back to top
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
